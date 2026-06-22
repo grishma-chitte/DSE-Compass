@@ -1,0 +1,138 @@
+branch_id,college_abbrv,dte_code,branch_name,branch_abbrv,regular_intake,dse_intake_2025
+1,BVCERI,5130,Civil Engineering,CIVIL,60,6
+2,BVCERI,5130,Computer Engineering,COMP,60,6
+3,BVCERI,5130,Electrical Engineering,ELEC,60,6
+4,BVCERI,5130,Mechanical Engineering,MECH,120,12
+5,JIT,5401,Computer Engineering,COMP,120,12
+6,JIT,5401,Information Technology,IT,120,12
+7,JIT,5401,Artificial Intelligence & Data Science,AIDS,120,12
+8,JIT,5401,Electrical Engineering,ELEC,60,6
+9,JIT,5401,Mechanical Engineering,MECH,23,2
+10,JIT,5401,Civil Engineering,CIVIL,46,4
+11,JIT,5401,Electronic & Telecommunication Engg.,E&TC,60,6
+12,JIT,5401,Automation & Robotics,AR,60,6
+13,KKWDIR,5121,Computer Engineering,COMP,120,12
+14,KKWDIR,5121,Electronics & Telecommunication Engg.,E&TC,120,12
+15,KKWDIR,5121,Civil Engineering,CIVIL,120,12
+16,KKWDIR,5121,Mechanical Engineering,MECH,120,12
+17,KKWDIR,5121,Electrical Engineering,ELEC,120,12
+18,SNDCOERC,5121,Chemical Engineering,CHEM,60,6
+19,KKWDIR,5121,Information Technology,IT,120,12
+20,KKWDIR,5121,Robotics & Automation Engineering,R&A,120,12
+21,KKWDIR,5121,Artificial Intelligence & Data Science,AIDS,120,12
+22,KKWDIR,5121,Computer Science and Design,CSD,120,12
+23,LOGMIEER,5390,Civil Engineering,CIVIL,60,6
+24,LOGMIEER,5390,Computer Engineering,COMP,60,6
+25,LOGMIEER,5390,Information Technology,IT,30,3
+26,LOGMIEER,5390,Mechanical Engineering,MECH,60,6
+27,LOGMIEER,5390,Electrical Engineering,ELEC,60,6
+28,LOGMIEER,5390,Artificial Intelligence & Machine Learning,AIML,60,6
+29,LGNSCOE,5182,Computer Engineering,COMP,120,12
+30,LGNSCOE,5182,Artificial Intelligence & Data Science,AIDS,120,12
+31,LGNSCOE,5182,Civil Engineering,CIVIL,60,6
+32,LGNSCOE,5182,Electrical Engineering,ELEC,60,6
+33,LGNSCOE,5182,Electronics & Telecommunication Engg.,E&TC,120,12
+34,LGNSCOE,5182,Mechanical Engineering,MECH,60,6
+35,SNJB,5173,Artificial Intelligence & Data Science,AIDS,126,12
+36,SNJB,5173,Civil Engineering,CIVIL,63,6
+37,SNJB,5173,Computer Engineering,COMP,180,18
+38,SNJB,5173,Electronics & Telecommunication Engg.,E&TC,63,6
+39,SNJB,5173,Mechanical Engineering,MECH,63,6
+40,MCOERC,5177,Artificial Intelligence & Data Science,AIDS,120,12
+41,MCOERC,5177,Civil Engineering,CIVIL,60,6
+42,MCOERC,5177,Computer Engineering,COMP,180,18
+43,MCOERC,5177,Electrical Engineering,ELEC,60,6
+44,MCOERC,5177,Electronics & Telecommunication Engg.,E&TC,120,12
+45,MCOERC,5177,Electronics & Computer Engineering,E&C,120,12
+46,MCOERC,5177,Information Technology,IT,120,12
+47,MCOERC,5177,Mechanical Engineering,MECH,60,6
+48,METIOE,5151,Computer Engineering,COMP,120,12
+49,METIOE,5151,Information Technology,IT,120,12
+50,METIOE,5151,Artificial Intelligence & Data Science,AIDS,120,12
+51,METIOE,5151,Electronics & Telecommunication Engg.,E&TC,60,6
+52,METIOE,5151,Mechanical Engineering,MECH,120,12
+53,METIOE,5151,Electrical Engineering,ELEC,60,6
+54,METIOE,5151,Civil Engineering,CIVIL,60,6
+55,METIOE,5151,Electronics & Computer Engineering,E&C,60,6
+56,KBTCOE,5108,Mechanical Engineering,MECH,120,12
+57,KBTCOE,5108,Computer Engineering,COMP,180,18
+58,KBTCOE,5108,Instrumentation & Control Engineering,ICE,60,6
+59,KBTCOE,5108,Electronics & Telecommunication Engg.,E&TC,120,12
+60,KBTCOE,5108,Civil Engineering,CIVIL,120,12
+61,KBTCOE,5108,Information Technology,IT,180,18
+62,KBTCOE,5108,Artificial Intelligence & Data Science,AIDS,180,18
+63,KBTCOE,5108,Electrical Engineering,ELEC,60,6
+64,KBTCOE,5108,Automation & Robotics,AR,120,12
+65,PVGCOE,5330,Mechanical Engineering,MECH,60,6
+66,PVGCOE,5330,Artificial Intelligence & Data Science,AIDS,60,6
+67,PVGCOE,5330,Computer Engineering,COMP,60,6
+68,PVGCOE,5330,Information Technology,IT,60,6
+69,PVGCOE,5330,Electronics & Telecommunication Engg.,E&TC,60,6
+70,RHSCOEMSR,5181,Artificial Intelligence & Data Science,AIDS,60,6
+71,RHSCOEMSR,5181,Civil Engineering,CIVIL,60,6
+72,RHSCOEMSR,5181,Computer Engineering,COMP,120,12
+73,RHSCOEMSR,5181,Electrical Engineering,ELEC,120,12
+74,RHSCOEMSR,5181,Electronics & Telecommunication Engg.,E&TC,120,12
+75,RHSCOEMSR,5181,Mechanical Engineering,MECH,120,12
+76,SIEM,5331,Civil Engineering,CIVIL,60,6
+77,SIEM,5331,Computer Engineering,COMP,180,18
+78,SIEM,5331,Electrical Engineering,ELEC,60,6
+79,SIEM,5331,Electronics & Telecommunication Engg.,E&TC,120,12
+80,SIEM,5331,Mechanical Engineering,MECH,120,12
+81,SIEM,5331,Information Technology,IT,60,6
+82,SIEM,5331,Artificial Intelligence & Data Science,AIDS,60,6
+83,SIEM,5331,Automation & Robotics,AR,60,6
+84,SITRC,5109,Information Technology,IT,60,6
+85,SITRC,5109,Computer Engineering,COMP,120,12
+86,SITRC,5109,Electronics & Telecommunication Engg.,E&TC,60,6
+87,SITRC,5109,Mechanical Engineering,MECH,60,6
+88,SITRC,5109,Civil Engineering,CIVIL,60,6
+89,SITRC,5109,Electrical Engineering,ELEC,60,6
+90,SITRC,5109,Artificial Intelligence & Data Science,AIDS,60,6
+91,SITRC,5109,Automation & Robotics,AR,60,6
+92,SITRC,5109,Artificial Intelligence & Machine Learning,AIML,60,6
+93,SITRC,5109,Computer Science,CS,60,6
+94,SUN,,Computer Science & Engineering,CSE,120,12
+95,SUN,,Artificial Intelligence & Machine Learning,AIML,60,6
+96,SUN,,Artificial Intelligence & Data Science,AIDS,60,6
+97,SUN,,Cloud Tech & Information Security,CTIS,30,3
+98,SUN,,Cyber Security & Forensics,CSF,30,3
+99,SUN,,Full Stack Dev & Testing (with AI/ML),FSDT,30,3
+100,SUN,,Robotics Process Automation,RPA,30,3
+101,SUN,,Virtual & Augmented Reality,VRAR,30,3
+102,SUN,,Aerospace Engineering,AES,30,3
+103,SUN,,Aeronautical Engineering,AEN,30,3
+104,SUN,,Mechanical Engineering,MECH,60,6
+105,SUN,,Civil Engineering,CIVIL,60,6
+106,SUN,,Electrical Engineering,ELEC,30,3
+107,SUN,,Electronics & Telecommunication Engg.,E&TC,30,3
+108,SUN,,Biomedical Engineering,BME,30,3
+109,SUN,,Biotechnology,BT,30,3
+110,SCOE,5399,Computer Engineering,COMP,60,6
+111,SCOE,5399,Information Technology,IT,60,6
+112,SCOE,5399,Artificial Intelligence & Machine Learning,AIML,60,6
+113,SCOE,5399,Electrical Engineering,ELEC,60,6
+114,SCOE,5399,Civil Engineering,CIVIL,60,6
+115,SCOE,5399,Mechanical Engineering,MECH,60,6
+116,SIER,5184,Civil Engineering,CIVIL,60,6
+117,SIER,5184,Computer Engineering,COMP,60,6
+118,SIER,5184,Electrical Engineering,ELEC,60,6
+119,SIER,5184,Electronics & Telecommunication Engg.,E&TC,60,6
+120,SIER,5184,Mechanical Engineering,MECH,60,6
+121,SVIT,5125,Computer Engineering,COMP,60,6
+122,SVIT,5125,Chemical Engineering,CHEM,60,6
+123,SVIT,5125,Electronics & Computer Engineering,E&C,60,6
+124,SVIT,5125,Information Technology,IT,60,6
+125,SNDCOERC,5124,Computer Engineering,COMP,120,12
+126,SNDCOERC,5124,Civil Engineering,CIVIL,60,6
+127,SNDCOERC,5124,Information Technology,IT,60,6
+128,SNDCOERC,5124,Mechanical Engineering,MECH,60,6
+129,SNDCOERC,5124,Electronics & Computer Engineering,E&C,60,6
+130,SNDCOERC,5124,Mechatronics Engineering,MH,60,6
+131,SNDCOERC,5124,Electrical Engineering,ELEC,60,6
+132,GCOERC,5418,Artificial Intelligence & Data Science,AIDS,120,12
+133,GCOERC,5418,Automation & Robotics,AR,60,6
+134,GCOERC,5418,Civil Engineering,CIVIL,60,6
+135,GCOERC,5418,Computer Engineering,COMP,120,12
+136,GCOERC,5418,Electrical Engineering,ELEC,60,6
+137,GCOERC,5418,Mechanical Engineering,MECH,60,6
