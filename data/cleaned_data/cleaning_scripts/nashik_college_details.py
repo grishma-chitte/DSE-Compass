@@ -1,16 +1,24 @@
 import pandas as pd
+from pathlib import Path
 
 CITY = "nashik"
 
 INPUT_FILE = f"data/raw_data/{CITY}_raw_data.xlsx"
 OUTPUT_FILE = f"data/cleaned_data/{CITY}_cleaned_data.xlsx"
 
+# =========================
+# Read Sheet
+# =========================
+
 df = pd.read_excel(
     INPUT_FILE,
     sheet_name="college_details"
 )
 
-# Remove leading/trailing spaces from text fields
+# =========================
+# Remove leading/trailing spaces
+# =========================
+
 text_columns = [
     "college_name",
     "college_abbrv",
@@ -25,9 +33,16 @@ text_columns = [
 
 for col in text_columns:
     if col in df.columns:
-        df[col] = df[col].astype(str).str.strip()
+        df[col] = (
+            df[col]
+            .astype(str)
+            .str.strip()
+        )
 
+# =========================
 # Standardize yes/no fields
+# =========================
+
 yes_no_columns = [
     "participates_in_cap",
     "autonomous",
@@ -46,7 +61,10 @@ for col in yes_no_columns:
             .str.lower()
         )
 
-# Clean contact number
+# =========================
+# Clean Contact Number
+# =========================
+
 if "contact_no" in df.columns:
     df["contact_no"] = (
         df["contact_no"]
@@ -56,23 +74,43 @@ if "contact_no" in df.columns:
         .str.strip()
     )
 
-# Ensure fee is numeric
+# =========================
+# Clean Estimated Fees (Lakh)
+# =========================
+
 if "estimated_fees" in df.columns:
     df["estimated_fees"] = pd.to_numeric(
         df["estimated_fees"],
         errors="coerce"
     ).round(2)
 
-# Remove duplicate colleges by DTE code
+# =========================
+# Remove Duplicate Colleges
+# =========================
+
 if "dte_code" in df.columns:
     df = df.drop_duplicates(
         subset=["dte_code"],
         keep="first"
     )
 
+# =========================
+# Save Sheet
+# =========================
+
+file_exists = Path(OUTPUT_FILE).exists()
+
+writer_args = {
+    "engine": "openpyxl",
+    "mode": "a" if file_exists else "w"
+}
+
+if file_exists:
+    writer_args["if_sheet_exists"] = "replace"
+
 with pd.ExcelWriter(
     OUTPUT_FILE,
-    engine="openpyxl"
+    **writer_args
 ) as writer:
     df.to_excel(
         writer,
@@ -80,4 +118,4 @@ with pd.ExcelWriter(
         index=False
     )
 
-print("Cleaning completed successfully.")
+print("college_details cleaned successfully")
