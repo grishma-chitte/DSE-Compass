@@ -51,6 +51,7 @@ if "contact_no" in df.columns:
     df["contact_no"] = (
         df["contact_no"]
         .astype(str)
+        .str.replace(" ", "", regex=False)
         .str.replace("-", "", regex=False)
         .str.strip()
     )
