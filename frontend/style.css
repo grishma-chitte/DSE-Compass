@@ -1,0 +1,63 @@
+
+body{background:#f5f7fa;}
+.card{border-radius:12px;}
+
+.hero-section{
+    background:#f8fafc;
+    transition:0.3s;
+}
+
+.dark-mode .hero-section{
+    background:#1e293b;
+}
+
+.hero-section h1,
+.hero-section p{
+    color:#111827;
+    transition:0.3s;
+}
+
+.dark-mode .hero-section h1,
+.dark-mode .hero-section p{
+    color:#f8fafc;
+}
+
+:root{
+    --bg:#f5f7fa;
+    --text:#111827;
+    --card:#ffffff;
+}
+
+body{
+    background-color:var(--bg);
+    color:var(--text);
+    transition:0.3s;
+}
+
+.card{
+    background-color:var(--card);
+    color:var(--text);
+    transition:0.3s;
+}
+
+.dark-mode{
+    --bg:#0f172a;
+    --text:#f8fafc;
+    --card:#1e293b;
+}
+
+.dark-mode .navbar{
+    background:#020617 !important;
+}
+
+.dark-mode .card{
+    background:#1e293b;
+    border:1px solid #334155;
+}
+
+.dark-mode .form-control,
+.dark-mode .form-select{
+    background:#334155;
+    color:#f8fafc;
+    border-color:#475569;
+}
