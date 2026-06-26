@@ -15,6 +15,8 @@ df = pd.read_excel(
     sheet_name="college_details"
 )
 
+df = df.loc[:, ~df.columns.str.contains("^Unnamed")]
+
 # =========================
 # Remove leading/trailing spaces
 # =========================

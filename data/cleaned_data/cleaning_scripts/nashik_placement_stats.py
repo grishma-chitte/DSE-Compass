@@ -12,8 +12,11 @@ OUTPUT_FILE = f"data/cleaned_data/{CITY}_cleaned_data.xlsx"
 
 df = pd.read_excel(
     INPUT_FILE,
+
     sheet_name="placement_stats"
 )
+
+df = df.loc[:, ~df.columns.str.contains("^Unnamed")]
 
 # =========================
 # Clean College Abbreviation
