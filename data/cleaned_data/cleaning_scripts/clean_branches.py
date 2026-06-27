@@ -1,7 +1,8 @@
 import pandas as pd
+import sys
 from pathlib import Path
 
-CITY = "nashik"
+CITY = sys.argv[1] if len(sys.argv) > 1 else "nashik"
 
 INPUT_FILE = f"data/raw_data/{CITY}_raw_data.xlsx"
 OUTPUT_FILE = f"data/cleaned_data/{CITY}_cleaned_data.xlsx"
@@ -15,7 +16,11 @@ df = pd.read_excel(
     sheet_name="branches"
 )
 
+# Remove accidental Excel columns like "Unnamed: 6"
 df = df.loc[:, ~df.columns.str.contains("^Unnamed")]
+
+# Remove completely empty rows
+df = df.dropna(how="all")
 
 # =========================
 # Clean Text Columns
@@ -35,8 +40,6 @@ for col in text_columns:
             .str.strip()
         )
 
-# Standardize abbreviations
-
 if "college_abbrv" in df.columns:
     df["college_abbrv"] = df["college_abbrv"].str.upper()
 
@@ -48,6 +51,7 @@ if "branch_abbrv" in df.columns:
 # =========================
 
 numeric_columns = [
+    "branch_id",
     "dte_code",
     "regular_intake",
     "estimated_dse_intake",
@@ -60,12 +64,6 @@ for col in numeric_columns:
             df[col],
             errors="coerce"
         )
-
-# =========================
-# Remove Completely Empty Rows
-# =========================
-
-df = df.dropna(how="all")
 
 # =========================
 # Duplicate Check
@@ -83,34 +81,16 @@ if not duplicates.empty:
     print(duplicates)
 
 # =========================
-# Validation Checks
+# Optional sanity check
 # =========================
 
-if {
-    "regular_intake",
-    "estimated_dse_intake"
-}.issubset(df.columns):
+invalid = df[
+    df["estimated_dse_intake"] > df["regular_intake"]
+]
 
-    invalid = df[
-        df["estimated_dse_intake"] > df["regular_intake"]
-    ]
-
-    if not invalid.empty:
-        print("\nWARNING: Estimated DSE intake exceeds regular intake:\n")
-        print(invalid)
-
-if {
-    "estimated_dse_intake",
-    "dse_intake_2025"
-}.issubset(df.columns):
-
-    invalid = df[
-        df["dse_intake_2025"] > df["estimated_dse_intake"]
-    ]
-
-    if not invalid.empty:
-        print("\nWARNING: Actual DSE intake exceeds estimated DSE intake:\n")
-        print(invalid)
+if not invalid.empty:
+    print("\nWARNING: Estimated DSE intake exceeds regular intake:\n")
+    print(invalid)
 
 # =========================
 # Save Sheet

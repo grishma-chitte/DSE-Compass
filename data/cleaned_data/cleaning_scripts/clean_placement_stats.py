@@ -1,7 +1,8 @@
 import pandas as pd
+import sys
 from pathlib import Path
 
-CITY = "nashik"
+CITY = sys.argv[1] if len(sys.argv) > 1 else "nashik"
 
 INPUT_FILE = f"data/raw_data/{CITY}_raw_data.xlsx"
 OUTPUT_FILE = f"data/cleaned_data/{CITY}_cleaned_data.xlsx"
