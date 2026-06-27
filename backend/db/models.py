@@ -31,10 +31,9 @@ class CollegeDetails(Base):
         primary_key=True
     )
 
-    dte_code: Mapped[int] = mapped_column(
+    dte_code: Mapped[int | None] = mapped_column(
         Integer,
-        unique=True,
-        nullable=False
+        unique=True
     )
 
     college_name: Mapped[str] = mapped_column(
@@ -42,8 +41,14 @@ class CollegeDetails(Base):
         nullable=False
     )
 
-    college_abbrv: Mapped[str | None] = mapped_column(
-        String(50)
+    college_abbrv: Mapped[str] = mapped_column(
+        String(50),
+        nullable=False
+    )
+
+    participates_in_cap: Mapped[bool] = mapped_column(
+        Boolean,
+        nullable=False
     )
 
     address: Mapped[str] = mapped_column(
@@ -75,9 +80,18 @@ class CollegeDetails(Base):
         String(20)
     )
 
-    ugc_approved: Mapped[bool] = mapped_column(
+    aicte_approved: Mapped[bool] = mapped_column(
         Boolean,
         nullable=False
+    )
+
+    ugc_recognized: Mapped[bool] = mapped_column(
+        Boolean,
+        nullable=False
+    )
+
+    ugc_approved_section: Mapped[str | None] = mapped_column(
+        String(50)
     )
 
     contact_no: Mapped[str | None] = mapped_column(
@@ -93,7 +107,7 @@ class CollegeDetails(Base):
     )
 
     estimated_fees: Mapped[float | None] = mapped_column(
-        Numeric(10, 2)
+        Float
     )
 
     website_url: Mapped[str | None] = mapped_column(
@@ -154,7 +168,15 @@ class Branch(Base):
         String(50)
     )
 
-    intake_capacity: Mapped[int | None] = mapped_column(
+    regular_intake: Mapped[int | None] = mapped_column(
+        Integer
+    )
+
+    estimated_dse_intake: Mapped[int | None] = mapped_column(
+        Integer
+    )
+
+    dse_intake_2025: Mapped[int | None] = mapped_column(
         Integer
     )
 
@@ -337,7 +359,7 @@ class StudentProfile(Base):
         primary_key=True
     )
 
-    latest_percentile: Mapped[float | None] = mapped_column(
+    latest_percentage: Mapped[float | None] = mapped_column(
         Float
     )
 
