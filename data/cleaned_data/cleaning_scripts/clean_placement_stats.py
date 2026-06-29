@@ -81,15 +81,16 @@ df = df.dropna(how="all")
 # Check Duplicates
 # =========================
 
+# Check for duplicates using abbreviation + year
 duplicates = df[
     df.duplicated(
-        subset=["dte_code", "year"],
+        subset=["college_abbrv", "year"],
         keep=False
     )
 ]
 
 if not duplicates.empty:
-    print("\nWARNING: Duplicate placement records found\n")
+    print("\nWARNING: Duplicate placement records found (by abbreviation)\n")
     print(duplicates)
 
 # =========================

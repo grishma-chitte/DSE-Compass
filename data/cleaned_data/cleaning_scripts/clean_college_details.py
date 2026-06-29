@@ -91,11 +91,21 @@ if "estimated_fees" in df.columns:
 # Remove Duplicate Colleges
 # =========================
 
+# Robust duplicate check:
+# 1. Drop duplicates by abbreviation + city (handles all colleges)
+df = df.drop_duplicates(
+    subset=["college_abbrv", "city"],
+    keep="first"
+)
+
+# 2. If DTE code is present, also drop by DTE code (handles DTE colleges)
 if "dte_code" in df.columns:
-    df = df.drop_duplicates(
-        subset=["dte_code"],
-        keep="first"
-    )
+    # We only want to drop duplicates for non-null DTE codes
+    # drop_duplicates treats NaN as equal, so we handle them separately
+    mask = df["dte_code"].notnull()
+    df_non_null = df[mask].drop_duplicates(subset=["dte_code"], keep="first")
+    df_null = df[~mask]
+    df = pd.concat([df_non_null, df_null])
 
 # =========================
 # Save Sheet

@@ -69,15 +69,17 @@ for col in numeric_columns:
 # Duplicate Check
 # =========================
 
+# We check for duplicates using (college_abbrv, branch_name) 
+# as it's more reliable when dte_code is missing
 duplicates = df[
     df.duplicated(
-        subset=["dte_code", "branch_name"],
+        subset=["college_abbrv", "branch_name"],
         keep=False
     )
 ]
 
 if not duplicates.empty:
-    print("\nWARNING: Duplicate branches found:\n")
+    print("\nWARNING: Duplicate branches found (by abbreviation):\n")
     print(duplicates)
 
 # =========================

@@ -33,7 +33,7 @@ class CollegeDetails(Base):
 
     dte_code: Mapped[int | None] = mapped_column(
         Integer,
-        unique=True
+        nullable=True
     )
 
     college_name: Mapped[str] = mapped_column(
