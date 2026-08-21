@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | DSE-Compass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <div class="logo">DC</div>
+        DSE-Compass
+      </a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li><a href="compare.html">Compare <span data-compare-count>0</span></a></li>
+        <li><a href="about.html" class="active">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container about-section">
+    <h1>About DSE-Compass</h1>
+    <p class="lead">
+      Admission Support & College Comparison Portal for Diploma students seeking Direct Second Year Engineering (DSE) admissions in Maharashtra.
+    </p>
+
+    <h2>Problem</h2>
+    <p>
+      Students spend significant time visiting multiple websites, PDFs, and admission documents to compare colleges. 
+      The lack of a centralized platform makes decision-making difficult.
+    </p>
+
+    <h2>Our Solution</h2>
+    <p>
+      A responsive web application that allows students to search, filter, and compare engineering colleges 
+      using a centralized database — based on cutoffs, branches, location, placements, and college type.
+    </p>
+
+    <h2>Key Features</h2>
+    <ul>
+      <li>Search colleges by name or district</li>
+      <li>Filter by percentile range, branch, and college type</li>
+      <li>Side-by-side comparison of multiple colleges</li>
+      <li>View key statistics: cutoffs, packages, fees, branches</li>
+      <li>Mobile-friendly responsive interface</li>
+    </ul>
+
+    <h2>Target Users</h2>
+    <ul>
+      <li><strong>Primary:</strong> Diploma students seeking DSE admissions, Engineering aspirants</li>
+      <li><strong>Secondary:</strong> Parents, Academic counselors</li>
+    </ul>
+
+    <h2>Out of Scope</h2>
+    <ul>
+      <li>Admission form submission</li>
+      <li>Online counseling</li>
+      <li>Seat allotment prediction</li>
+      <li>User login / authentication</li>
+      <li>Payment gateway</li>
+    </ul>
+
+    <h2>Team</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="avatar">PM</div>
+        <h4>Project Manager</h4>
+        <span>Coordination & Planning</span>
+      </div>
+      <div class="team-card">
+        <div class="avatar">F</div>
+        <h4>Farheen</h4>
+        <span>Database & Data Pipeline</span>
+      </div>
+      <div class="team-card">
+        <div class="avatar">K</div>
+        <h4>Khushi</h4>
+        <span>Backend (Python / APIs)</span>
+      </div>
+      <div class="team-card">
+        <div class="avatar">V</div>
+        <h4>Vishakha</h4>
+        <span>Frontend HTML & CSS</span>
+      </div>
+      <div class="team-card">
+        <div class="avatar">G</div>
+        <h4>Grishma</h4>
+        <span>Frontend JavaScript</span>
+      </div>
+    </div>
+
+    <h2 style="margin-top:36px;">Disclaimer</h2>
+    <p>
+      All cutoff, fee, and placement figures shown in this application are approximate and compiled for educational guidance only. 
+      Always verify the latest official information from 
+      <a href="https://dtemaharashtra.gov.in" target="_blank" rel="noopener">dtemaharashtra.gov.in</a> 
+      and individual college websites before making admission decisions.
+    </p>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      DSE-Compass · Group Project · For educational purposes
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

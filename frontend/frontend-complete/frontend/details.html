@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Details | DSE-Compass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <div class="logo">DC</div>
+        DSE-Compass
+      </a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li><a href="compare.html">Compare <span data-compare-count>0</span></a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" id="details-container">
+    <div class="loading">
+      <div class="spinner"></div>
+      Loading college details...
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      DSE-Compass · Data is approximate — always verify official sources
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get("id"));
+      const college = COLLEGES.find(c => c.id === id);
+      const container = document.getElementById("details-container");
+
+      if (!college) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="icon">❌</div>
+            <h3>College not found</h3>
+            <p>The requested college does not exist.</p>
+            <a href="search.html" class="btn btn-primary" style="margin-top:16px;">Back to Search</a>
+          </div>`;
+        return;
+      }
+
+      document.title = college.name + " | DSE-Compass";
+
+      container.innerHTML = `
+        <div class="details-header">
+          <a href="search.html" style="font-size:0.85rem;color:var(--text-muted);">← Back to Search</a>
+          <h1 style="margin-top:12px;">${college.name}</h1>
+          <div class="details-meta">
+            <span>📍 ${college.district}</span>
+            <span class="badge ${typeBadgeClass(college.type)}">${college.type}</span>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn btn-primary btn-sm" onclick="toggleCompare(${college.id}); this.textContent = compareList.includes(${college.id}) ? 'Remove from Compare' : '+ Add to Compare';">
+              ${compareList.includes(college.id) ? "Remove from Compare" : "+ Add to Compare"}
+            </button>
+            <a href="compare.html" class="btn btn-outline btn-sm">Go to Compare</a>
+          </div>
+        </div>
+
+        <div class="details-grid">
+          <div class="detail-card">
+            <h3>Key Statistics</h3>
+            <div class="detail-row"><span class="label">Approx. Cutoff</span><span class="value">${college.cutoff}%</span></div>
+            <div class="detail-row"><span class="label">Average Package</span><span class="value">${college.avgPackage} LPA</span></div>
+            <div class="detail-row"><span class="label">Placement Rate</span><span class="value">${college.placementPct}%</span></div>
+            <div class="detail-row"><span class="label">Annual Fees</span><span class="value">${formatFees(college.fees)}</span></div>
+            <div class="detail-row"><span class="label">Cutoff Trend</span><span class="value">${college.trend.map(t => t + "%").join(" → ")}</span></div>
+          </div>
+
+          <div class="detail-card">
+            <h3>Branches Offered</h3>
+            <div class="card-branches" style="margin-top:8px;">
+              ${college.branches.map(b => `<span class="branch-tag">${b}</span>`).join("")}
+            </div>
+            <h3 style="margin-top:24px;">Overview</h3>
+            <p style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">${college.description}</p>
+          </div>
+        </div>
+
+        <div style="margin-bottom:40px;">
+          <p style="font-size:0.8rem;color:var(--text-dim);">
+            ⚠️ All figures are approximate and for guidance only. Always verify the latest official CAP cutoff PDFs and college websites before making decisions.
+          </p>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
