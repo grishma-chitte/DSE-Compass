@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compare Colleges | DSE-Compass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <div class="logo">DC</div>
+        DSE-Compass
+      </a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li><a href="compare.html" class="active">Compare <span data-compare-count>0</span></a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container compare-section">
+    <h1 style="font-size:1.6rem;font-weight:800;margin-bottom:8px;">Compare Colleges</h1>
+    <p style="color:var(--text-muted);margin-bottom:24px;">Select colleges from Search page (max 4) to compare side-by-side.</p>
+
+    <div class="compare-selected" id="compare-chips">
+      <!-- chips rendered by JS -->
+    </div>
+
+    <div id="compare-content">
+      <!-- table rendered by JS -->
+    </div>
+
+    <div class="empty-state" id="compare-empty" style="display:none;">
+      <div class="icon">📊</div>
+      <h3>Select at least 2 colleges</h3>
+      <p>Go to Search, click "+ Compare" on college cards, then come back here.</p>
+      <a href="search.html" class="btn btn-primary" style="margin-top:16px;">Go to Search</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      DSE-Compass · Data is approximate — always verify official sources
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/compare.js"></script>
+</body>
+</html>
