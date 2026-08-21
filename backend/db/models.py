@@ -283,6 +283,10 @@ class PlacementStats(Base):
         Float
     )
 
+    highest_package: Mapped[float | None] = mapped_column(
+        Numeric(10, 2)
+    )
+
     avg_package: Mapped[float | None] = mapped_column(
         Numeric(10, 2)
     )
