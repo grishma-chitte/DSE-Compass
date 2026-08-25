@@ -203,8 +203,9 @@ class Cutoff(Base):
             "college_id",
             "branch_id",
             "year",
+            "round",
             "category",
-            name="uq_cutoff_record"
+            name="uq_cutoff_round_record"
         ),
     )
 
@@ -228,6 +229,11 @@ class Cutoff(Base):
         nullable=False
     )
 
+    round: Mapped[int] = mapped_column(
+        Integer,
+        nullable=False
+    )
+
     category: Mapped[str] = mapped_column(
         String(20),
         nullable=False
@@ -247,6 +253,7 @@ class Cutoff(Base):
         "Branch",
         back_populates="cutoffs"
     )
+
 
 
 # =========================

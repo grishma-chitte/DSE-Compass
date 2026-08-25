@@ -114,12 +114,16 @@ try:
             continue
 
         # 3. Create placement stat
+        highest_pkg = row.get("highest_package") if "highest_package" in row and pd.notnull(row["highest_package"]) else None
+        
         stat = PlacementStats(
             college_id=college.college_id,
             year=year_val,
             placement_percent=row["placement_percent"],
+            highest_package=highest_pkg,
             avg_package=row["avg_package"]
         )
+
 
         session.add(stat)
         inserted += 1
