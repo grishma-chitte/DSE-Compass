@@ -62,6 +62,16 @@ if "placement_percent" in df.columns:
     ).round(2)
 
 # =========================
+# Clean Highest Package (LPA)
+# =========================
+
+if "highest_package" in df.columns:
+    df["highest_package"] = pd.to_numeric(
+        df["highest_package"],
+        errors="coerce"
+    ).round(2)
+
+# =========================
 # Clean Average Package (LPA)
 # =========================
 
@@ -70,6 +80,7 @@ if "avg_package" in df.columns:
         df["avg_package"],
         errors="coerce"
     ).round(2)
+
 
 # =========================
 # Remove Fully Empty Rows

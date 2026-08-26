@@ -1,0 +1,264 @@
+🟡 Farheen — Database Architect
+
+colleges   → id, name, short_name, district, type, naac, fees, hostel
+branches   → id, college_id, branch_name
+cutoffs    → id, college_id, year, percentile
+placements → id, college_id, avg_package, highest_package, placed_percent
+
+
+--------------------------------------------------------------------
+🟡 Khushi — Backend Developer
+  The exact API endpoints
+
+  GET /api/colleges
+    ?search=pune
+    ?minPercentile=85
+    ?maxPercentile=98
+    ?branch=CS
+    ?type=Government
+    ?district=Pune
+
+GET /api/compare
+    ?ids=1&ids=2&ids=3
+
+The exact JSON shape Grishma will receive:
+
+[
+  {
+    "id": 1,
+    "name": "College of Engineering, Pune",
+    "short_name": "COEP",
+    "district": "Pune",
+    "type": "Autonomous",
+    "naac": "A++",
+    "fees": 85000,
+    "hostel": 1,
+    "cutoff_2024": 98.8,
+    "avg_package": 12.4,
+    "highest_package": 52,
+    "placed_percent": 94,
+    "branches": ["CS", "IT", "Mech"]
+  }
+]
+
+--------------------------------------------------------------------
+🟡 Vishakha — Frontend Lead
+HTML element IDs
+
+id="searchInput"      ← search box
+id="minPct"           ← min percentile input
+id="maxPct"           ← max percentile input
+id="branchFilter"     ← branch dropdown
+id="typeFilter"       ← college type dropdown
+id="districtFilter"   ← district dropdown
+id="searchBtn"        ← search button
+id="clearBtn"         ← clear button
+id="resultsGrid"      ← div where cards are injected
+id="result-count"     ← shows "10 colleges found"
+id="compareBtn"       ← appears when ≥2 selected
+id="compareCount"     ← number inside compare button
+
+
+
+ Page Structure
+
+1. Landing / Home Page
+2. Search & Results Page (main page)
+3. College Details Page (optional but recommended)
+4. Compare Page
+5. About Page
+
+1. Landing / Home Page
+Layout:
+
+Navbar (sticky)
+Hero section (big heading + short description + CTA button)
+Quick Search box (college name / district)
+Features section (Search, Filter, Compare)
+Footer
+
+Hero Example:
+
+DSE-Compass
+Admission Support & College Comparison Portal
+
+Diploma holders ke liye Maharashtra ke engineering colleges 
+ko easily search, filter aur compare karein.
+
+[ Start Searching ]
+
+
+
+2. Search & Results Page (Most Important)
+
+Layout Suggestion:
+
+┌─────────────────────────────────────────────────────┐
+│  Navbar                                                               │
+├──────────────────┬──────────────────────────────────┤
+│                  │                                                   │
+│  FILTER PANEL    │     SEARCH RESULTS                                │
+│  (Left Sidebar)  │                                                   │
+│                  │  ┌──────────┐┌──────────┐                 │
+│  - Percentile    │  │ College 1 │   │ College 2 │                   │
+│  - Branch        │  └──────────┘└──────────┘                 │
+│  - College Type  │  ┌──────────┐┌──────────┐                 │
+│  - District      │  │ College 3 │   │ College 4 │                   │
+│  - Search Name   │  └──────────┘└──────────┘                 │
+│                  │                                                   │
+│  [ Apply ]       │     Pagination / Load More                        │
+└──────────────────┴──────────────────────────────────┘
+
+Filter Panel (Left side - Desktop):
+
+Search by College Name
+Percentile Range (slider ya Min-Max inputs)
+Branch (multi-select checkbox)
+College Type (Government / Private / Aided)
+District / City
+Clear Filters button
+
+Mobile: Filters ko top pe collapsible panel banao (Filter button → opens drawer)
+
+
+
+3. College Card Design (Results mein)
+
+┌────────────────────────────┐
+│  College Name                       │
+│  📍 District · Government           │
+│                                     │
+│  Cutoff: 87.5%    Package: 6.5 LPA  │
+│  Branch: Computer, IT, E&TC         │
+│                                     │
+│  [ View Details ]   [ + Compare ]   │
+└────────────────────────────┘
+
+Better version:
+
+College name (bold)
+Location + Type badge
+Key metrics in row (Cutoff, Avg Package, Fees)
+Top branches as tags
+Two buttons: View Details + Add to Compare
+
+
+4. Compare Page
+
+Best structure:
+
+Selected Colleges (max 3 or 4)
+┌────────┬───────┬────────┐
+│ College A│ College B│ College C │
+├────────┼───────┼────────┤
+│ Cutoff   │  89%     │  82%      │
+│ Package  │  7.2 LPA │  5.8 LPA  │
+│ Fees     │  ₹85k    │  ₹1.2L    │
+│ Type     │  Govt    │  Private  │
+│ Location │  Pune    │  Nashik   │
+│ Branches │  CS, IT  │  CS, Mech │
+└────────┴───────┴────────┘
+
+5. Suggested Color & Style
+
+Element              |  Suggestion
+________________________________________________________
+Primary Color        |  Blue (#2563EB ya #3B82F6)
+Background           |  Dark (#0F172A) ya Light (#F8FAFC)
+Cards                |  Slightly elevated with shadow
+Buttons              |  Rounded + clear hover effect
+Font                 |  Inter / Poppins / system-ui
+__________________________________________________________
+
+Complete Frontend
+
+dse-compass/
+├── index.html          ← Landing / Home Page
+├── search.html         ← Search + Filters + Results
+├── details.html        ← College Details Page
+├── compare.html        ← Side-by-side Compare
+├── about.html          ← About + Team + Scope
+├── css/
+│   └── style.css       ← Complete modern stylesheet
+└── js/
+    ├── data.js         ← 16 colleges sample data
+    ├── app.js          ← Search, filter, compare logic
+    └── compare.js      ← Compare page logic
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------
+Decisions
+Decision	Agreed Value
+API base URL	http://localhost:5000
+Cutoff year shown on card	2024
+Fees unit in DB	Raw rupees (e.g. 850000)
+Hostel in DB	1 = Yes, 0 = No
+Package unit in DB	LPA (e.g. 12.4 means 12.4L)
+Branch names exact spelling	CS, IT, E&TC, Mech, civil, Electrical, AI&DS
+File sharing method	Google Drive Folder shared with screenshot
+Bug reporting method	WhatsApp group msg with screenshot
+Daily standup time	9:00 PM on WhatsApp(In 3 formats: Done/ Next/ Blocked)
+
+🟠 Grishma
+✅ Done   → validate.js written + tested
+⏭ Next   → app.js fetch skeleton ready
+🚫 Blocked → Need Khushi's JSON shape confirmed ✓
+
+
+⚠️ Critical Rules
+
+Rule	                           Detail
+--------------------------------------------------------------------------
+Farheen submits DB first	   Khushi can't finish API without it
+
+Khushi shares column names	   Grishma needs exact JSON keys
+
+Vishakha uses id attributes	   Grishma's JS targets them by ID
+
+No one waits silently	           If blocked → message team immediately
+
+
+
+
+⚠️ Important Inconsistencies
+
+Topic        |       Recommendation
+____________________________________________________________________
+Database     |       SQLite final (Farheen ka stack)
+             |
+Frontend     |       HTML + CSS + JS (Vishakha + Grishma)
+             |
+Auth / Login |       Out of Scope (simple)
+             |
+Backend      |       Flask final (Khushi)
+_____________________________________________________________________
+
+Final Stack
+
+Farheen  → Python + Pandas + SQLite
+Khushi   → Python + Flask + flask-cors
+Vishakha → HTML + CSS (Bootstrap optional)
+Grishma  → Vanilla JS + Fetch API
+
+
+
+
+📊 Responsibility Timeline
+
+
+         Aug21  Aug22  Aug23  Aug24  Aug25  Aug26  Aug27  Aug28  Aug29
+Farheen    🟢─────✅
+Vishakha   🟢──────────✅
+Khushi     🟢─────────────────✅
+Grishma    🟢──────────────────────────✅
+
+
+
+
+
