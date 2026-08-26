@@ -120,3 +120,39 @@ Start the Flask backend server:
 ```bash
 python backend/app.py
 ```
+
+
+
+
+
+## Frontend
+
+Location: `frontend/`
+
+### Tech Stack
+- HTML5
+- CSS3 (custom responsive theme)
+- Vanilla JavaScript (no React/npm)
+
+### Pages
+|      File      |                Description               |
+|----------------|------------------------------------------|
+| `index.html`   | Landing / Home page                      |
+| `search.html`  | Search, filters, and college results     |
+| `details.html` | Single college details                   |
+| `compare.html` | Side-by-side comparison (max 4 colleges) |
+| `about.html`   | Project about page                       |
+
+### Run
+ Open `frontend/index.html` in browser
+   (or use VS Code Live Server)
+
+### Features
+- Search colleges by name
+- Filter by district, college type, branch, percentile range
+- Sort by cutoff, package, fees, name
+- Add up to 4 colleges to compare
+- Compare table with key metrics
+- College details page
+- Responsive layout (mobile + desktop)
+- Compare list saved in localStorage   
